@@ -28,9 +28,11 @@ class CreatePage extends SpecialPage
 		global $wgOut, $wgRequest;
 		global $wgCreatePageNamespaces, $createPageTypes;
 
-		$wgCreatePageNamespaces = '<option>Uni Wien<option selected>TU Wien<option>MU Wien<option>Help';
-		$wgCreatePageTypes = '<option>LU<option>UE<option>VD<option>VO<option>VL<option>VU';
+		$wgCreatePageNamespaces = '<option>Uni Wien<option selected>TU Wien<option>MU Wien<option>Sonstige';
+		$wgCreatePageTypes = '<option>AG<option>AU<option>Ex<option>LU<option>PR<option>PS<option>SE<option>UE<option>VD<option>VO<option>VL<option>VU';
+
 		$this->setHeaders();
+
 
 		if ( $wgRequest->getBool('was_submitted', false ) ) {
 			$ns = $wgRequest->getVal( 'namespace' );
@@ -60,8 +62,8 @@ class CreatePage extends SpecialPage
 		}
 
 		$wgOut->addWikiText( wfMsg('introduction') );
-		$wgOut->setPagetitle( wfMsg('pagetitle') );
 
+		$wgOut->setPagetitle( wfMsg('pagetitle') );
 
 		$wgOut->addHTML('<form name=\'new_page\' method=\'get\'>
 				<input type="hidden" name="was_submitted" value="true">
