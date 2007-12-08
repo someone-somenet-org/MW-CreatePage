@@ -29,7 +29,7 @@ class CreatePage extends SpecialPage
 		global $wgCreatePageNamespaces, $createPageTypes;
 
 		$wgCreatePageNamespaces = '<option>Uni Wien<option selected>TU Wien<option>MU Wien<option>Sonstige';
-		$wgCreatePageTypes = '<option>AG<option>AU<option>Ex<option>LU<option>PR<option>PS<option>SE<option>UE<option>VD<option>VO<option>VL<option>VU';
+		$wgCreatePageTypes = '<option>AG<option>AU<option>Ex<option selected>LU<option>PR<option>PS<option>SE<option>UE<option>VD<option>VO<option>VL<option>VU';
 
 		$this->setHeaders();
 
