@@ -14,19 +14,80 @@ function wfSpecialCreatePage ($par) {
  */
 class CreatePage extends SpecialPage
 {
+
 	/**
 	 * constructor, only does the basic stuff...
 	 */
 	function CreatePage() {
 		self::loadMessages();
 		SpecialPage::SpecialPage( wfMsg('createpage') );
+		$this->mIncludable = true;
 	}
 
 	function execute( $par ) {
-		global $wgOut;
+		global $wgOut, $wgRequest;
+		global $wgCreatePageNamespaces, $createPageTypes;
+
+		$wgCreatePageNamespaces = '<option>Uni Wien<option selected>TU Wien<option>MU Wien<option>Help';
+		$wgCreatePageTypes = '<option>LU<option>UE<option>VD<option>VO<option>VL<option>VU';
 		$this->setHeaders();
 
-		$wgOut->addWikiText('Stub');
+		if ( $wgRequest->getBool('was_submitted', false ) ) {
+			$ns = $wgRequest->getVal( 'namespace' );
+			$newtitle = $wgRequest->getVal( 'newtitle' );
+			$type = $wgRequest->getVal( 'type' );
+			$suffix1 = $wgRequest->getVal( 'suffix1' );
+			$suffix2 = $wgRequest->getVal( 'suffix2' );
+
+			if ( $ns != '' && $newtitle != '' && $type != '' && $suffix1 != '' ) {
+
+				// assemble title:
+				$completeTitle = $ns . ':' . $newtitle . ' ' . $type . ' ' . '(' . $suffix1;
+				if ( $suffix2 != '' ) {
+					$completeTitle .= ', ' . $suffix2;
+				}
+				$completeTitle .= ')';
+
+
+				$redir = Title::newFromText( $completeTitle );
+				if ( $redir->exists() )
+					$wgOut->redirect($redir->getFullURL() );
+				else
+					$wgOut->redirect($redir->getFullURL() . '?action=edit' );
+			} else {
+				$wgOut->addWikiText( wfMsg('missing_input') );
+			}
+		}
+
+		$wgOut->addWikiText( wfMsg('introduction') );
+		$wgOut->setPagetitle( wfMsg('pagetitle') );
+
+
+		$wgOut->addHTML('<form name=\'new_page\' method=\'get\'>
+				<input type="hidden" name="was_submitted" value="true">
+				<table>
+					<tr>
+						<th>' . wfMsg('namespace_header') . '</th>
+						<th>' . wfMsg('newpage_title') . '</th>
+						<th>' . wfMsg('newpage_type') . '</th>
+						<th>' . wfMsg('newpage_suffix1') . '</th>
+						<th>' . wfMsg('newpage_suffix2') . '</th>
+					<tr>
+						<td><select name=namespace>' . $wgCreatePageNamespaces . '</select></td>
+						<td><input size=45 type=\'text\' name=\'newtitle\' value=\'' . $newtitle . '\'></td>
+						<td><select name=type>' . $wgCreatePageTypes . '</select></td>
+						<td><input size=15 type=\'text\' name=\'suffix1\' value=\'' . $suffix1 . '\'></td>
+						<td><input size=15 type=\'text\' name=\'suffix2\' value=\'' . $suffix2 . '\'></td>
+						<td><input type=\'submit\' value=\'' . wfMsg('button')  . '\'></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>' . wfMsg( 'newtitle_desc' ) . '</td>
+						<td></td>
+						<td>' . wfMsg( 'suffix1_desc' ) . '</td>
+						<td>' . wfMsg( 'suffix2_desc' ) . '</td>
+					</tr>
+				</table></form>');
 	}
 
 	/* internationalization stuff */
