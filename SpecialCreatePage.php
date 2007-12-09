@@ -63,7 +63,8 @@ class CreatePage extends SpecialPage
 
 		$wgOut->addWikiText( wfMsg('introduction') );
 
-		$wgOut->setPagetitle( wfMsg('pagetitle') );
+// caused problems 2007-12-09
+//		$wgOut->setPagetitle( wfMsg('pagetitle') );
 
 		$wgOut->addHTML('<form name=\'new_page\' method=\'get\'>
 				<input type="hidden" name="was_submitted" value="true">
