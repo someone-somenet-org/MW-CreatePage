@@ -66,7 +66,10 @@ class CreatePage extends SpecialPage
 // caused problems 2007-12-09
 //		$wgOut->setPagetitle( wfMsg('pagetitle') );
 
-		$wgOut->addHTML('<form name=\'new_page\' method=\'get\'>
+		global $wgScript;
+		$handler = $wgScript . '/' . Namespace::getCanonicalName(NS_SPECIAL) . ":" . SpecialPage::getLocalName( 'Create page' );
+
+		$wgOut->addHTML('<form name=\'new_page\' method=\'get\' action=\'' . $handler . '\'>
 				<input type="hidden" name="was_submitted" value="true">
 				<table>
 					<tr>
