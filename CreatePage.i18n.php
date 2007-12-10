@@ -23,7 +23,7 @@ $allMessages = array(
 		'button' => 'Create',
 		'newtitle_desc' => 'e.g. "<i>Software Engineering und Projektmanagement</i>"',
 		'suffix1_desc' => 'e.g. "<i>Fischer</i>"',
-		'suffix2_desc' => 'e.g. "<i>GNU/Linux</i>"',
+		'suffix2_desc' => 'e.g. "<i>Linux</i>"',
 	),
 	'de' => array(
 		'createpage' => 'LVA-Beschreibung_hinzufügen',
@@ -49,7 +49,7 @@ $allMessages = array(
 		'button' => 'Erstellen',
 		'newtitle_desc' => 'z.B. "<i>Software Engineering und Projektmanagement</i>"',
 		'suffix1_desc' => 'z.B. "<i>Fischer</i>"',
-		'suffix2_desc' => 'z.B. "<i>GNU/Linux</i>"',
+		'suffix2_desc' => 'z.B. "<i>Linux</i>"',
 	)
 );
 ?>
