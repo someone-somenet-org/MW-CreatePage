@@ -33,7 +33,6 @@ class CreatePage extends SpecialPage
 
 		$this->setHeaders();
 
-
 		if ( $wgRequest->getBool('was_submitted', false ) ) {
 			$ns = $wgRequest->getVal( 'namespace' );
 			$newtitle = $wgRequest->getVal( 'newtitle' );
@@ -57,11 +56,11 @@ class CreatePage extends SpecialPage
 				else
 					$wgOut->redirect($redir->getFullURL() . '?action=edit' );
 			} else {
-				$wgOut->addWikiText( wfMsg('missing_input') );
+				$this->addText( wfMsg('missing_input') );
 			}
 		}
 
-		$wgOut->addWikiText( wfMsg('introduction') );
+		$this->addText( wfMsg('introduction') );
 
 // caused problems 2007-12-09
 //		$wgOut->setPagetitle( wfMsg('pagetitle') );
@@ -94,6 +93,16 @@ class CreatePage extends SpecialPage
 						<td>' . wfMsg( 'suffix2_desc' ) . '</td>
 					</tr>
 				</table></form>');
+	}
+
+	/**
+	 * parse the text because we can't add WikiText. see here:
+	 *  http://bugzilla.wikimedia.org/show_bug.cgi?id=9762
+	 */
+	function addText( $text ) {
+		global $wgTitle, $wgOut, $wgParser;
+		$po = $wgParser->parse( $text, $wgTitle, $wgParser->mOptions, false, false );
+		$wgOut->addHTML( $po->getText() );
 	}
 
 	/* internationalization stuff */
