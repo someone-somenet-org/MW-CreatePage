@@ -14,6 +14,7 @@ function wfSpecialCreatePage ($par) {
  */
 class CreatePage extends SpecialPage
 {
+	var $myParser;
 
 	/**
 	 * constructor, only does the basic stuff...
@@ -21,6 +22,7 @@ class CreatePage extends SpecialPage
 	function CreatePage() {
 		self::loadMessages();
 		SpecialPage::SpecialPage( wfMsg('createpage') );
+		$this->myParser = new Parser();
 		$this->mIncludable = true;
 	}
 
@@ -100,8 +102,8 @@ class CreatePage extends SpecialPage
 	 *  http://bugzilla.wikimedia.org/show_bug.cgi?id=9762
 	 */
 	function addText( $text ) {
-		global $wgTitle, $wgOut, $wgParser;
-		$po = $wgParser->parse( $text, $wgTitle, $wgParser->mOptions, false, false );
+		global $wgTitle, $wgOut;
+		$po = $this->myParser->parse( $text, $wgTitle, new ParserOptions(), false, true );
 		$wgOut->addHTML( $po->getText() );
 	}
 
