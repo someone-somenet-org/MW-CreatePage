@@ -3,7 +3,6 @@ $allMessages = array(
         'en' => array(
 		'createpage' => 'Create_page', 
 		'create_page' => 'Create page', /* this is a) link text in Special:Specialpages and b) title on the view of the special page */
-//		'pagetitle' => 'Create a new page',
 		'introduction' => 'This page allows you to create a new description of a course at the university, you simply have to fill out these few fields and hit "Create":
 * \'\'\'university:\'\'\' The university where the course is/was held.
 * \'\'\'title:\'\'\' The full title of the course (you may want to search [http://tuwis.tuwien.ac.at/zope/_ZopeId/23004543A3JC5VHWBwA/tpp/lv/lv/search/index_html tuwis] for it, if it was held at the TU of Vienna)
@@ -28,7 +27,6 @@ $allMessages = array(
 	'de' => array(
 		'createpage' => 'LVA-Beschreibung_hinzufügen',
 		'lva-beschreibung_hinzufügen' => 'LVA-Beschreibung hinzufügen', /* this is a) link text in Special:Specialpages and b) title on the view of the special page */
-//		'pagetitle' => 'LVA-Beschreibung hinzufügen',
 		'introduction' => 'Mit diesem Formular kannst du schnell und einfach eine neue LVA-Beschreibung erstellen, einfach die Felder ausfüllen und "Erstellen" klicken:
 * \'\'\'Universität:\'\'\' Die Universität auf der der Kurs gehalten wird.
 * \'\'\'LVA-Name:\'\'\' Der vollständige LVA-Name (kannst du für die TU Wien im [http://tuwis.tuwien.ac.at/zope/_ZopeId/23004543A3JC5VHWBwA/tpp/lv/lv/search/index_html tuwis] nachschlagen)
