@@ -11,7 +11,7 @@ EOT;
 $wgAutoloadClasses['CreatePage'] = dirname(__FILE__) . '/SpecialCreatePage.php';
 $wgSpecialPages[ 'CreatePage' ] = 'CreatePage';
 $wgHooks['LoadAllMessages'][] = 'CreatePage::loadMessages';
-$wgHooks['LangugeGetSpecialPageAliases'][] = 'CreatePage_LocalizedPageName';
+$wgHooks['LanguageGetSpecialPageAliases'][] = 'CreatePage_LocalizedPageName';
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'CreatePage',
