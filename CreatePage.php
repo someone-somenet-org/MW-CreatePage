@@ -16,9 +16,9 @@ $wgHooks['LanguageGetSpecialPageAliases'][] = 'CreatePage_LocalizedPageName';
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'CreatePage',
 	'description' => 'This special page allows you to easily create new pages which follow our naming-convention',
-	'version' => '0.9.1-1.11.0',
+	'version' => '0.9.2-1.12.0',
 	'author' => 'Mathias Ertl',
-	'url' => 'http://pluto.htu.tuwien.ac.at/devel_wiki/index.php/CreatePage',
+	'url' => 'http://pluto.htu.tuwien.ac.at/devel_wiki/CreatePage',
 );
 
 function CreatePage_LocalizedPageName( &$specialPageArray, $code) {
