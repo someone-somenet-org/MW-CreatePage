@@ -8,10 +8,13 @@ EOT;
 	exit( 1 );
 }
 
+$dir = dirname(__FILE__);
+
 $wgAutoloadClasses['CreatePage'] = dirname(__FILE__) . '/SpecialCreatePage.php';
+$wgExtensionMessagesFiles['CreatePage'] = $dir . '/CreatePage.i18n.php';
 $wgSpecialPages[ 'CreatePage' ] = 'CreatePage';
-$wgHooks['LoadAllMessages'][] = 'CreatePage::loadMessages';
-$wgHooks['LanguageGetSpecialPageAliases'][] = 'CreatePage_LocalizedPageName';
+$wgHooks['LanguageGetSpecialPageAliases'][] = 'efCreatePageLocalizedPageName';
+
 
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'CreatePage',
@@ -21,13 +24,16 @@ $wgExtensionCredits['specialpage'][] = array(
 	'url' => 'http://pluto.htu.tuwien.ac.at/devel_wiki/CreatePage',
 );
 
-function CreatePage_LocalizedPageName( &$specialPageArray, $code) {
-	CreatePage::loadMessages();
-	$text = wfMsg('createpage');
+function efCreatePageLocalizedPageName( &$specialPageArray, $code) {
+	wfLoadExtensionMessages('CreatePage');
+	$textMain = wfMsgForContent( 'createpage' );
+	$textUser = wfMsg('createpage');
 
 	# Convert from title in text form to DBKey and put it into the alias array:
-	$title = Title::newFromText( $text );
-	$specialPageArray['CreatePage'][] = $title->getDBKey();
+	$titleMain = Title::newFromText( $textMain );
+	$titleUser = Title::newFromText( $textUser );
+	$specialPageArray['CreatePage'][] = $titleMain->getDBKey();
+	$specialPageArray['CreatePage'][] = $titleUser->getDBKey();
 
 	return true;
 }

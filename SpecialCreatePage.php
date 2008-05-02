@@ -20,18 +20,30 @@ class CreatePage extends SpecialPage
 	 * constructor, only does the basic stuff...
 	 */
 	function CreatePage() {
-		self::loadMessages();
-		SpecialPage::SpecialPage( wfMsg('createpage') );
+		SpecialPage::SpecialPage( 'CreatePage' );
+		wfLoadExtensionMessages( 'CreatePage' );
+
 		$this->myParser = new Parser();
 		$this->mIncludable = true;
 	}
 
 	function execute( $par ) {
 		global $wgOut, $wgRequest;
-		global $wgCreatePageNamespaces, $createPageTypes;
+		global $wgCreatePageNamespaces, $wgCreatePageTypes;
 
-		$wgCreatePageNamespaces = '<option>Uni Wien<option selected>TU Wien<option>MU Wien<option>Sonstige';
-		$wgCreatePageTypes = '<option>AG<option>AU<option>Ex<option selected>LU<option>PR<option>PS<option>SE<option>UE<option>VD<option>VO<option>VL<option>VU';
+		// assemble types and namespaces
+		foreach( $wgCreatePageNamespaces as $key => $value ) {
+			if ( $value ) 
+				$namespaces .= '<option selected>' . $key;
+			else
+				$namespaces .= '<option>' . $key;
+		}
+		foreach( $wgCreatePageTypes as $key => $value ) {
+			if ( $value )
+				$types .= '<option selected>' . $key;
+			else
+				$types .= '<option>' . $key;
+		}
 
 		$this->setHeaders();
 
@@ -65,7 +77,7 @@ class CreatePage extends SpecialPage
 		$this->addText( wfMsg('introduction') );
 
 // caused problems 2007-12-09
-//		$wgOut->setPagetitle( wfMsg('pagetitle') );
+		$wgOut->setPagetitle( wfMsg('emCreatePagePageTitle') );
 
 		global $wgScript;
 		$handler = $wgScript . '/' . Namespace::getCanonicalName(NS_SPECIAL) . ":" . SpecialPage::getLocalName( 'Create page' );
@@ -80,9 +92,9 @@ class CreatePage extends SpecialPage
 						<th>' . wfMsg('newpage_suffix1') . '</th>
 						<th>' . wfMsg('newpage_suffix2') . '</th>
 					<tr>
-						<td><select name=namespace>' . $wgCreatePageNamespaces . '</select></td>
+						<td><select name=namespace>' . $namespaces . '</select></td>
 						<td><input size=45 type=\'text\' name=\'newtitle\' value=\'' . $newtitle . '\'></td>
-						<td><select name=type>' . $wgCreatePageTypes . '</select></td>
+						<td><select name=type>' . $types . '</select></td>
 						<td><input size=15 type=\'text\' name=\'suffix1\' value=\'' . $suffix1 . '\'></td>
 						<td><input size=15 type=\'text\' name=\'suffix2\' value=\'' . $suffix2 . '\'></td>
 						<td><input type=\'submit\' value=\'' . wfMsg('button')  . '\'></td>
@@ -105,21 +117,6 @@ class CreatePage extends SpecialPage
 		global $wgTitle, $wgOut;
 		$po = $this->myParser->parse( $text, $wgTitle, new ParserOptions(), false, true );
 		$wgOut->addHTML( $po->getText() );
-	}
-
-	/* internationalization stuff */
-	function loadMessages() {
-		static $messagesLoaded = false;
-		global $wgMessageCache;
-		if ( $messagesLoaded )
-			return true;
-		$messagesLoaded = true;
-
-		require( dirname( __FILE__ ) . '/CreatePage.i18n.php' );
-		foreach ( $allMessages as $lang => $langMessages ) {
-			$wgMessageCache->addMessages( $langMessages, $lang );
-		}
-		return true;
 	}
 }
 
