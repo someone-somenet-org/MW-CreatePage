@@ -21,9 +21,9 @@ $messages = array(
 		'newpage_suffix1' => 'professor(s):',
 		'newpage_suffix2' => 'optional info:',
 		'button' => 'Create',
-		'newtitle_desc' => 'e.g. "<i>Software Engineering und Projektmanagement</i>"',
-		'suffix1_desc' => 'e.g. "<i>Fischer</i>"',
-		'suffix2_desc' => 'e.g. "<i>Linux</i>"',
+		'newtitle_desc' => 'e.g. "<i>Mathematik 1</i>"',
+		'suffix1_desc' => 'e.g. "<i>Karigl</i>"',
+		'suffix2_desc' => 'e.g. "<i>Foo</i>"',
 	),
 	'de' => array(
 		'createpage' => 'LVA-Beschreibung hinzufügen',
@@ -47,9 +47,9 @@ $messages = array(
 		'newpage_suffix1' => 'Lehrende:',
 		'newpage_suffix2' => 'optionale Zusatzinfo:',
 		'button' => 'Erstellen',
-		'newtitle_desc' => 'z.B. "<i>Software Engineering und Projektmanagement</i>"',
-		'suffix1_desc' => 'z.B. "<i>Fischer</i>"',
-		'suffix2_desc' => 'z.B. "<i>Linux</i>"',
+		'newtitle_desc' => 'z.B. "<i>Mathematik 1</i>"',
+		'suffix1_desc' => 'z.B. "<i>Karigl</i>"',
+		'suffix2_desc' => 'z.B. "<i>Foo</i>"',
 	)
 );
 ?>

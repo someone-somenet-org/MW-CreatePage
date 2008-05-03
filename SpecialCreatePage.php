@@ -93,10 +93,10 @@ class CreatePage extends SpecialPage
 						<th>' . wfMsg('newpage_suffix2') . '</th>
 					<tr>
 						<td><select name=namespace>' . $namespaces . '</select></td>
-						<td><input size=45 type=\'text\' name=\'newtitle\' value=\'' . $newtitle . '\'></td>
+						<td><input size=40 type=\'text\' name=\'newtitle\' value=\'' . $newtitle . '\'></td>
 						<td><select name=type>' . $types . '</select></td>
 						<td><input size=15 type=\'text\' name=\'suffix1\' value=\'' . $suffix1 . '\'></td>
-						<td><input size=15 type=\'text\' name=\'suffix2\' value=\'' . $suffix2 . '\'></td>
+						<td><input size=22 type=\'text\' name=\'suffix2\' value=\'' . $suffix2 . '\'></td>
 						<td><input type=\'submit\' value=\'' . wfMsg('button')  . '\'></td>
 					</tr>
 					<tr>
@@ -104,7 +104,7 @@ class CreatePage extends SpecialPage
 						<td>' . wfMsg( 'newtitle_desc' ) . '</td>
 						<td></td>
 						<td>' . wfMsg( 'suffix1_desc' ) . '</td>
-						<td>' . wfMsg( 'suffix2_desc' ) . '</td>
+						<td></td>
 					</tr>
 				</table></form>');
 	}
