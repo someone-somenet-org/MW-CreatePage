@@ -24,6 +24,8 @@ $messages = array(
 		'newtitle_desc' => 'e.g. "<i>Mathematik 1</i>"',
 		'suffix1_desc' => 'e.g. "<i>Karigl</i>"',
 		'suffix2_desc' => 'e.g. "<i>Foo</i>"',
+		'specialpages-specialpagegroup-createpage' => "vowi",
+		'specialpages-group-vowi' => "VoWi-Extensions"
 	),
 	'de' => array(
 		'createpage' => 'LVA-Beschreibung hinzufügen',
@@ -50,6 +52,8 @@ $messages = array(
 		'newtitle_desc' => 'z.B. "<i>Mathematik 1</i>"',
 		'suffix1_desc' => 'z.B. "<i>Karigl</i>"',
 		'suffix2_desc' => 'z.B. "<i>Foo</i>"',
+		'specialpages-specialpagegroup-createpage' => "vowi",
+		'specialpages-group-vowi' => "VoWi-Extensions"
 	)
 );
 ?>
