@@ -80,7 +80,7 @@ class CreatePage extends SpecialPage
 		$wgOut->setPagetitle( wfMsg('emCreatePagePageTitle') );
 
 		global $wgScript;
-		$handler = $wgScript . '/' . Namespace::getCanonicalName(NS_SPECIAL) . ":" . SpecialPage::getLocalName( 'Create page' );
+		$handler = $wgScript . '/' . MWNamespace::getCanonicalName(NS_SPECIAL) . ":" . SpecialPage::getLocalName( 'Create page' );
 
 		$wgOut->addHTML('<form name=\'new_page\' method=\'get\' action=\'' . $handler . '\'>
 				<input type="hidden" name="was_submitted" value="true">
