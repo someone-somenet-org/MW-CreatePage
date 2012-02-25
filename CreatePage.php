@@ -21,7 +21,7 @@ $wgExtensionCredits['specialpage'][] = array(
 	'description' => 'This special page allows you to easily create new pages which follow our naming-convention',
 	'version' => '1.0.2-1.13.0',
 	'author' => 'Mathias Ertl',
-	'url' => 'http://pluto.htu.tuwien.ac.at/devel_wiki/CreatePage',
+	'url' => 'https://fs.fsinf.at/wiki/CreatePage',
 );
 
 function efCreatePageLocalizedPageName( &$specialPageArray, $code) {
