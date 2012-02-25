@@ -31,6 +31,12 @@ class CreatePage extends SpecialPage
 		global $wgOut, $wgRequest;
 		global $wgCreatePageNamespaces, $wgCreatePageTypes;
 
+		$namespaces = '';
+		$types = '';
+		$newtitle = '';
+		$suffix1 = '';
+		$suffix2 = '';
+
 		// assemble types and namespaces
 		foreach( $wgCreatePageNamespaces as $key => $value ) {
 			if ( $value ) 
