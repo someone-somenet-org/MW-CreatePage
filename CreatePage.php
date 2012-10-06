@@ -19,7 +19,7 @@ $wgHooks['LanguageGetSpecialPageAliases'][] = 'efCreatePageLocalizedPageName';
 $wgExtensionCredits['specialpage'][] = array(
 	'name' => 'CreatePage',
 	'description' => 'This special page allows you to easily create new pages which follow our naming-convention',
-	'version' => '1.0.2-1.13.0',
+	'version' => '1.0.3-1.19.0',
 	'author' => 'Mathias Ertl',
 	'url' => 'https://fs.fsinf.at/wiki/CreatePage',
 );
