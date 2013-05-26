@@ -1,31 +1,17 @@
 <?php
 
 /**
- * Entry point
- */
-function wfSpecialCreatePage ($par) {
-	global $wgOut;
-	$page = new CreatePage();
-	$page->execute($par);
-}
-
-/**
  * actual class...
  */
-class CreatePage extends SpecialPage
+class SpecialCreatePage extends SpecialPage
 {
 	var $myParser;
 
-	/**
-	 * constructor, only does the basic stuff...
-	 */
-	function CreatePage() {
-		SpecialPage::SpecialPage( 'CreatePage' );
-		wfLoadExtensionMessages( 'CreatePage' );
-
+    function __construct() {
+        parent::__construct('CreatePage');
 		$this->myParser = new Parser();
 		$this->mIncludable = true;
-	}
+    }
 
 	function execute( $par ) {
 		global $wgOut, $wgRequest;
@@ -39,7 +25,7 @@ class CreatePage extends SpecialPage
 
 		// assemble types and namespaces
 		foreach( $wgCreatePageNamespaces as $key => $value ) {
-			if ( $value ) 
+			if ( $value )
 				$namespaces .= '<option selected>' . $key;
 			else
 				$namespaces .= '<option>' . $key;
