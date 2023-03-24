@@ -12,6 +12,7 @@ $messages = array(
 ** Always name the "official" head of the course as shown in TISS
 ** You may also name additional people that are visible in that course as well
 * \'\'\'optional info:\'\'\' In this optional field you can give additional information if a course is held several times and the courses are commonly distinguished with other phrases.
+** \'\'\'No course-numbers.\'\'\' Course-numbers are irrelevant at VUT from a student\'s POV and can change randomly without any reason. Therefore we dont care about them and dont want them in page titles.
 
 ',
 		'missing_input' => '<b>Please enter all required input.</b>',
@@ -39,6 +40,7 @@ $messages = array(
 ** Nenne immer zumindest den offiziellen LVA-Leiter der im TISS aufscheint
 ** Sind weitere Lehrende in der LVA stark involviert, kannst du sie ebenfalls nennen
 * \'\'\'optionale Zusatzinfo:\'\'\' Manche LVAs werden meistens nicht über den/die Lehrenden sondern ueber einen anderen Begriff identifiziert, hier kannst du \'\'\'optional\'\'\' diese Begriffe nennen.
+** \'\'\'Keine LVA-Nummern.\'\'\' LVA-Nummern sind an der TU aus Studierendensicht vollkommen irrelevant und können sich grundlos ändern. Deshalb wollen wir sie nicht im Seiten-Titel haben.
 
 
 		',
